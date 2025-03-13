@@ -1,0 +1,30 @@
+@BASE_URL= http://localhost:8080/api/v1
+
+### Get all openings
+GET {{BASE_URL}}/openings
+
+### Create a new opening
+POST {{BASE_URL}}/opening
+Content-Type: application/json
+
+{
+  "title": "New Opening",
+  "description": "Job description",
+  "requirements": "Job requirements"
+}
+
+### Get a specific opening by ID
+GET {{BASE_URL}}/opening/{id}
+
+### Update an existing opening by ID
+PUT {{BASE_URL}}/opening
+Content-Type: application/json
+
+{
+  "title": "Updated Opening",
+  "description": "Updated job description",
+  "requirements": "Updated job requirements"
+}
+
+### Delete an opening by ID
+DELETE {{BASE_URL}}/opening
