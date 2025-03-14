@@ -8,9 +8,12 @@ POST {{BASE_URL}}/opening
 Content-Type: application/json
 
 {
-  "title": "New Opening",
-  "description": "Job description",
-  "requirements": "Job requirements"
+	"role": "Senior da Vida e do Universo",
+	"company": "UltraSoft",
+	"location": "New York",
+	"remote": true,	
+	"link": "vaga.com/vagapica",
+	"salary": 520000
 }
 
 ### Get a specific opening by ID
