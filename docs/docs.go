@@ -16,6 +16,48 @@ const docTemplate = `{
     "basePath": "{{.BasePath}}",
     "paths": {
         "/opening": {
+            "get": {
+                "description": "Get a job opening",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Openings"
+                ],
+                "summary": "Get Opening",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Opening identification",
+                        "name": "id",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/handler.GetOpeningResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/handler.ErrorResponse"
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "schema": {
+                            "$ref": "#/definitions/handler.ErrorResponse"
+                        }
+                    }
+                }
+            },
             "post": {
                 "description": "Create a new job opening",
                 "consumes": [
@@ -161,6 +203,17 @@ const docTemplate = `{
             "properties": {
                 "errorCode": {
                     "type": "string"
+                },
+                "message": {
+                    "type": "string"
+                }
+            }
+        },
+        "handler.GetOpeningResponse": {
+            "type": "object",
+            "properties": {
+                "data": {
+                    "$ref": "#/definitions/schemas.OpeningResponse"
                 },
                 "message": {
                     "type": "string"
